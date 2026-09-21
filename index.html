@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="P4R Contador">
+  <title>Persona 4 Revival Countdown</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- yeahhh, planejar as divs de antemão foi uma boa ideia. -->
+  <main id="top">
+
+    <section class="hero">
+
+      <video class="sky-bg" autoplay muted loop playsinline aria-hidden="true">
+        <source src="assets/Sky_Background.mp4" type="video/mp4">
+      </video>
+
+      
+      <div class="hero-trailer">
+        <video class="trailer-bg" autoplay muted loop playsinline>
+          <source src="assets/Trailer_Editado.mp4" type="video/mp4">
+        </video>
+
+        
+        <img class="hero-decoration hero-decoration--tl"
+             src="assets/Background_top.png" alt="" aria-hidden="true">
+
+        <img class="hero-decoration hero-decoration--br"
+             src="assets/background_bottom.png" alt="" aria-hidden="true">
+
+        
+        <video class="yu-video" autoplay muted loop playsinline>
+          <source src="assets/Yu_Narukami_gif_PC.webm" type="video/mp4">
+        </video>
+
+        
+        <img class="p4r-logo" src="assets/P4R_logo.png" alt="Persona 4">
+      </div>
+
+      
+
+      <!-- Menuzin -->
+      
+      
+      <nav class="site-nav" aria-label="Navegação principal">
+
+  <button class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="menu-panel">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <span class="sr-only">Abrir menu</span>
+  </button>
+
+  <div class="menu-overlay" aria-hidden="true"></div>
+
+  <aside class="menu-panel" id="menu-panel" aria-hidden="true">
+
+    <button class="menu-close"
+            type="button"
+            aria-label="Fechar menu">
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="menu-content">
+
+      <p class="menu-kicker">PERSONA 4</p>
+
+      <h2>Menu</h2>
+
+      <a href="index.html">Início</a>
+      <a href="detalhes.html">Detalhes do Evento</a>
+      <a href="contato.html">Contato</a>
+
+    </div>
+
+  </aside>
+
+</nav>
+
+
+
+
+<!-- Contador a partir daqui -->
+
+
+
+
+     <section class="release-bar" aria-label="Contagem regressiva">
+
+  <span class="countdown-label">Lançamento em:</span>
+
+  <div class="countdown" id="countdown" data-target="2026-10-09T12:00:00">
+
+    <div class="countdown-unit" data-container="months">
+      <span class="countdown-label">meses</span>
+      <strong data-unit="months">00</strong>
+    </div>
+
+    <span class="countdown-separator" data-separator="months">:</span>
+
+    <div class="countdown-unit" data-container="days">
+      <span class="countdown-label">dias</span>
+      <strong data-unit="days">00</strong>
+    </div>
+
+    <span class="countdown-separator" data-separator="days">:</span>
+
+    <div class="countdown-unit" data-container="hours">
+      <span class="countdown-label">horas</span>
+      <strong data-unit="hours">00</strong>
+    </div>
+
+    <span class="countdown-separator" data-separator="hours">:</span>
+
+    <div class="countdown-unit" data-container="minutes">
+      <span class="countdown-label">minutos</span>
+      <strong data-unit="minutes">00</strong>
+    </div>
+
+    <span class="countdown-separator" data-separator="minutes">:</span>
+
+    <div class="countdown-unit" data-container="seconds">
+      <span class="countdown-label">segundos</span>
+      <strong data-unit="seconds">00</strong>
+    </div>
+
+  </div>
+</section>
+
+
+      <!-- Main area aqui -->
+   
+      
+      
+      
+      <section class="info-section info-section--synopsis" id="synopsis">
+
+     <div class="info-text-card">
+    <div class="solid-shadow solid-shadow--yellow"></div>
+
+    <div class="card-inner card-inner--blue">
+
+        <div class="text-content">
+            <h2 class="section-title section-title--yellow">
+                BEM VINDO A CIDADE DE INABA!
+            </h2>
+
+            <p class="synopse">
+                Persona 4 Revival é o remake do jogo de PS Vita de semelhante nome,
+              Persona 4 Golden, trazendo melhorias gráficas, mecânicas e adicões de conteúdo. 
+              Nele você passa a viver na cidade de Inaba, onde conhece
+              variás pessoas e passa a estudar na escola de Yasogami High. Mas lembre-se,
+              por mais calmo que tudo possa parecer, um mistério envolvendo assassinatos ocorre
+              na cidade, e você e seus amigos tem o objetivo de resolver tal!
+                
+            </p>
+        </div>
+
+        <div class="media-grid media-grid--three">
+
+            <div class="media-slot">
+                <span>
+                  <video class="trailer-bg" autoplay muted loop playsinline>
+          <source src="assets/friends.mp4" type="video/mp4">
+        </video>
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+      </section>
+      
+      
+      
+
+      <section class="info-section info-section--synopsis" id="world">
+
+        <div class="info-text-card">
+          <div class="solid-shadow solid-shadow--red"></div>
+
+          <div class="card-inner card-inner--red">
+            
+            <div class="text-content">
+            <h2 class="section-title section-title--red">CANAL DA MEIA-NOITE</h2>
+            <p class="synopse extra">
+              Um canal misterioso de um rumor onde você supostamente veria sua alma gêmea
+              caso você assistisse ao canal em uma noite de chuva às 00:00. Porém, o
+              que realmente é mostrado é uma vitíma jogado dentro para morrer em um "Mundo da Televisão".
+              Seu grupo é responsável em entrar neste mundo e salvar essas pessoas antes que o pior ocorra
+              utilizando o poder de manifestações de seu outro lado: Personas.
+              
+              
+            </div>
+              <div class="media-grid media-grid--two">
+          <div class="media-slot"><span>
+            <video class="trailer-bg" autoplay muted loop playsinline>
+          <source src="assets/TV.mp4" type="video/mp4">
+        </video>
+          </span></div>
+    
+        </div>
+            </p>
+          </div>
+        </div>
+
+      </section>
+      
+      
+      
+      
+
+      <section class="info-section info-section--combat" id="combat">
+
+        <div class="info-text-card">
+          <div class="solid-shadow solid-shadow--yellow-dark"></div>
+
+          <div class="card-inner card-inner--yellow">
+            
+            <div class="text-content">
+            <h2 class="section-title section-title--black">LUTE ATRÁS DA VERDADE!</h2>
+            <p class="synopse">
+           É lógico que o time de investigação não ficaria sem problemas, o mundo da Televisão
+           é infestado com infinitas entidades perigosas chamadas de "Sombras", e caso eles
+           queiram que o resgate seja um sucesso, precisam antes lutar contra essas sombras. O principal
+           meio de combate são as personas, que vão ser a principal ferramenta dos investigadores caso eles
+           queiram que o resgate seja um sucesso. Varra as sombras com seu novo poder e domine o mundo da TV!              
+            </p>
+            <div class="media-grid media-grid--two">
+          <div class="media-slot"><span>
+            <video class="trailer-bg" autoplay muted loop playsinline>
+          <source src="assets/Combat.mp4" type="video/mp4">
+        </video>
+          </span></div>
+          </div>
+        </div>
+
+        
+
+      </section>
+
+    </section>
+        
+        
+        <!-- toda a seção amarela ahhhh -->
+
+    <section class="yellow-area" id="merch">
+      
+      <div class="characters-section">
+
+    <h2 class="section-title extra-var section-title--black">PERSONAGENS </h2>
+
+    <div class="carousel-wrap">
+      
+      <div class="carousel">
+  <button class="carousel-btn" type="button" data-carousel-prev aria-label="Personagem anterior">
+    ‹
+  </button>
+
+  <div class="carousel-window">
+    <div class="carousel-track">
+
+      <div class="carousel-slide is-active" data-character="yu">
+        <img src="assets/P4R_Yu.png" alt="Yu Narukami">
+      </div>
+
+      <div class="carousel-slide" data-character="yosuke">
+        <img src="assets/P4R_Yosuke.png" alt="Yosuke Hanamura">
+      </div>
+
+      <div class="carousel-slide" data-character="chie">
+        <img src="assets/P4R_Chie.png" alt="Chie Satonaka">
+      </div>
+      
+      <div class="carousel-slide" data-character="yukiko">
+        <img src="assets/P4R_Yukiko.png" alt="Yukiko Amagi">
+      </div>
+      
+      <div class="carousel-slide" data-character="kanji">
+        <img src="assets/P4R_Kanji.png" alt="Kanji Tatsumi">
+      </div>
+      
+      <div class="carousel-slide" data-character="rise">
+        <img src="assets/P4R_Rise.png" alt="Rise Kujikawa">
+      </div>
+      
+      <div class="carousel-slide" data-character="teddie">
+        <img src="assets/P4R_Teddie.png" alt="Teddie">
+      </div>
+      
+      <div class="carousel-slide" data-character="naoto">
+        <img src="assets/P4R_Naoto.png" alt="Naoto Shirogane">
+      </div>
+      
+      <div class="carousel-slide" data-character="marie">
+        <img src="assets/P4R_Marie.png" alt="Marie">
+      </div>
+      
+      <div class="carousel-slide" data-character="dojima">
+        <img src="assets/P4R_Dojima.png" alt="Ryotaro Dojima">
+      </div>
+      
+      <div class="carousel-slide" data-character="nanako">
+        <img src="assets/P4R_Nanako.png" alt="Nakako Dojima">
+      </div>
+      
+      <div class="carousel-slide" data-character="adachi">
+        <img src="assets/P4R_Adachi.png" alt="Tohru Adachi">
+      </div>
+      
+      <div class="carousel-slide" data-character="aika">
+        <img src="assets/P4R_Aika.png" alt="Aika Nakamura">
+      </div>
+
+    </div>
+  </div>
+
+  <button class="carousel-btn" type="button" data-carousel-next aria-label="Próximo personagem">
+    ›
+  </button>
+</div>
+    </div>
+  <div class="detail-card">
+    <div class="character-info">
+     
+      <div class="character-copy" data-character-content="yu">
+        <h2>Yu Narukami</h2>
+        <p>
+          Um estudante no segundo ano do ensino médio que precisou se mudar
+          para a casa de seu tio no interior. Em reação aos assassinatos ocorrendo
+          em Inaba, ele desperta o poder das personas.
+        </p>
+      </div>
+
+      <div class="character-copy" data-character-content="yosuke" hidden>
+        <h2>Yosuke Hanamura</h2>
+        <p>
+          O primeiro amigo do protagonista em Inaba. Desnecessariamente sincero,
+          conselheiro auto-proclamado, mas sempre quem garante que todos estejam na
+          mesma página. Futuro sucessor da loja de convêniencia central da cidade, Junes. 
+          Sua persona é Jiraya.
+        </p>
+      </div>
+
+      <div class="character-copy" data-character-content="chie" hidden>
+        <h2>Chie Satonaka</h2>
+        <p>
+          Colega de classe do protagonista. Completamente fanática por filmes
+          de Kung Fu e uma amante de carnes, além de ser extremamente sociavel.
+          Sua persona é Tomoe.
+        </p>
+      </div>
+      
+      <div class="character-copy" data-character-content="yukiko" hidden>
+        <h2>Yukiko Amagi</h2>
+        <p>
+          Colega de classe do protagonista e filha dos donos da hospedaria Amagi.
+          Tem um grande senso de responsabilidade mas é uma cabeça de vento as vezes.
+          Sua persona é Konohana Sakuya.
+        </p>
+      </div>
+      
+      <div class="character-copy" data-character-content="kanji" hidden>
+        <h2>Kanji Tatsumi</h2>
+        <p>
+          Um estudante do primeiro ano com uma assustadora reputaçao de delinquente.
+          Meio grosso, se irrita fácil, mas é muito leal. Mora com sua mãe na loja de Têxtil.
+          Sua persona é Take-Mikazuchi.
+        </p>
+      </div>
+      
+      <div class="character-copy" data-character-content="rise" hidden>
+        <h2>Rise Kujikawa</h2>
+        <p>
+          Estudante no primeiro ano do ensino médio e idol que se mudou para Inaba em um hiato.
+          Extremamente confiante e animada o que rendeu muitos fãs. Vive com a avó na loja de tofu.
+          Sua persona é Himiko.
+        </p>
+      </div>
+      
+      <div class="character-copy" data-character-content="teddie" hidden>
+        <h2>Teddie</h2>
+        <p>
+          Um ser misterioso que rondava o mundo da Tv. Ele se junta ao time de investigação
+          para parar as pessoas de continuarem caindo nesse mundo. Muito curioso com humanos.
+          Sua persona é Kintoki-Douji.
+        </p>
+      </div>
+      
+      <div class="character-copy" data-character-content="naoto" hidden>
+        <h2>Naoto Shirogane</h2>
+        <p>
+          Estudante do primeiro ano e quinto sucessor da família de detetives Shironage.
+          Inteligente e afiado, ele é considerado o "Príncipe Detetive" de sua geração e trabalha
+          junto da polícia para resolver o caso. Sua persona é Sukuna-Hikona.
+        </p>
+      </div>
+      
+      <div class="character-copy" data-character-content="marie" hidden>
+        <h2>Marie</h2>
+        <p>
+          Uma garota sofrendo de amnesia e sem muito para onde ir. Não muito amigável,
+          mas tenta se adaptar ao grupo. Tenta esconder seus gostos, mas não consegue.
+        </p>
+      </div>
+      
+      <div class="character-copy" data-character-content="dojima" hidden>
+        <h2>Ryotaro Dojima</h2>
+        <p>
+          O tio do protagonista que o hospeda em sua casa, também é o principal detetive
+          trabalhando no caso dos assassinatos de Inaba. Ele gasta suas noites e dias trabalhando
+          tanto no caso atual quanto no caso da morte de sua esposa.
+        </p>
+      </div>
+      
+      <div class="character-copy" data-character-content="nanako" hidden>
+        <h2>Nanako Dojima</h2>
+        <p>
+          A filha de Dojima e prima do protagonista. Muita animada e passa muitos
+          dos seus dias assistindo televisão. Por algum motivo, ela tem um costume
+          de cantar o tema musical da Junes.
+        </p>
+      </div>
+      
+      <div class="character-copy" data-character-content="adachi" hidden>
+        <h2>Tohru Adachi</h2>
+        <p>
+          Investigador assistente de Dojima. Geralmente tem boas intenções, mas
+          costuma falar até demais para o grupo principal sobre os detalhes da
+          investigação, o que ironicamente o torna em uma das maiores peças em busca
+          da verdade.
+        </p>
+      </div>
+      
+      <div class="character-copy" data-character-content="aika" hidden>
+        <h2>Aika Nakamura</h2>
+        <p>
+          Nova personagem exclusiva do P4R. Aika é a entregadora do restaurante "Aiya",
+          e também principal rosto do negócio. Ela é uma das adições que vieram ao jogo
+          via pedidos de fãs.
+        </p>
+      </div> 
+    </div>
+
+    <div class="character-media">
+
+      <div class="media-slot" data-character-video="yu">
+        <span>
+         <video class="trailer-bg" autoplay muted loop playsinline>
+          <source src="assets/Yu_Sizzle.mp4" type="video/mp4">
+         </video>
+        </span>
+      </div>
+
+      <div class="media-slot" data-character-video="yosuke" hidden>
+        <span>
+         <video class="trailer-bg" autoplay muted loop playsinline>
+          <source src="assets/Yosuke_Sizzle.mp4" type="video/mp4">
+         </video>
+        </span>
+      </div>
+
+      <div class="media-slot" data-character-video="chie" hidden>
+        <span>
+         <video class="trailer-bg" autoplay muted loop playsinline>
+          <source src="assets/Chie_Sizzle.mp4" type="video/mp4">
+         </video>
+        </span>
+      </div>
+      
+      <div class="media-slot" data-character-video="yukiko" hidden>
+        <span>
+         <video class="trailer-bg" autoplay muted loop playsinline>
+          <source src="assets/Yukiko_Sizzle.mp4" type="video/mp4">
+         </video>
+        </span>
+      </div>
+      
+      <div class="media-slot" data-character-video="kanji" hidden>
+        <span>
+         <video class="trailer-bg" autoplay muted loop playsinline>
+          <source src="assets/Kanji_Sizzle.mp4" type="video/mp4">
+         </video>
+        </span>
+      </div>
+      
+      <div class="media-slot" data-character-video="rise" hidden>
+        <span>
+         <video class="trailer-bg" autoplay muted loop playsinline>
+          <source src="assets/Rise_Sizzle.mp4" type="video/mp4">
+         </video>
+        </span>
+      </div>
+      
+      <div class="media-slot" data-character-video="teddie" hidden>
+        <span>
+         <video class="trailer-bg" autoplay muted loop playsinline>
+          <source src="assets/Teddie_Sizzle.mp4" type="video/mp4">
+         </video>
+        </span>
+      </div>
+      
+      <div class="media-slot" data-character-video="naoto" hidden>
+        <span>
+         <video class="trailer-bg" autoplay muted loop playsinline>
+          <source src="assets/Naoto_Sizzle.mp4" type="video/mp4">
+         </video>
+        </span>
+      </div>
+
+    </div>
+  </div>
+  </div>
+        
+
+      <!--    <div class="decorations" aria-hidden="true">
+        <div class="deco1">
+        <img src="assets/Flor1.png" alt="">
+        </div>
+        <div class="deco2">
+        <img src="assets/decor-02.png" alt="">
+        </div> 
+        
+        <img src="assets/decor-03.png" alt="">
+      </div>
+      
+      
+      Oq é isso? Uma agora ideia descartada de colocar decorações.
+      Eu absolutamente desisti quando pensei melhor sobre.      -->
+     
+      <div class="merch-card">
+        <div class="merch-copy">
+          <span class="eyebrow">MERCH</span>
+          <h2>Bundle - Edição de pré-ordem </h2>
+          <p>
+            Celebre Persona 4 Revival com esse bundle feito
+            exclusivamente para o periodo de pré-venda do jogo. Esse produto
+            ficará disponível apenas até o dia 17 de fevereiro de 2027. Clique
+            no link a seguir para acessar mais detalhes:
+            
+          </p>
+          <a href="https://shopatlus.com/collections/persona-4-revival/products/limited-pre-order-bundle-persona-4-revival-exclusive-shop-atlus-merch-set">Bundle Limitado de Pré-Ordem</a>
+
+        </div>
+
+        <div class="merch-image media-slot">
+          <span>
+               <img
+             src="assets/Merch.png" alt="" aria-hidden="true">
+
+          </span>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer" id="credits">
+
+      <div class="footer-left">
+        <p class="footer-platforms">PLATAFORMAS</p>
+        <span>
+          <img src="assets/Logo.png" alt="">
+        </span>
+        
+
+        <div class="keywords">
+          <span>PERSONA</span>
+          <span>SHIN MEGAMI TENSEI</span>
+          <span>ATLUS</span>
+        </div>
+
+        <small>© 2027 Atlus — Todos os direitos reservados.</small>
+      </div>
+
+      <div class="footer-logos">
+        <img src="assets/AtlusLogo.jpg" alt="Atlus">
+        <img src="assets/sega-logo.png" alt="SEGA">
+      </div>
+
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
