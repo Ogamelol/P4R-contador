@@ -1,0 +1,1096 @@
+/* Esse é o css da pagina de contatos e detalhes.
+Por que eu separei? Medo de qualquer tipo de conflito entre
+elas caso eu cometa um erro. Em outras palavras, salvar tempo. */
+
+
+
+
+
+
+
+:root {
+  --yellow: #fff300;
+  --yellow-dark: #ffe500;
+  --orange: #e27c00;
+  --blue: #77A3B6;
+  --blue-dark: #307798;
+  --red: #c51d27;
+  --red-dark: #751018;
+  --brown: #70451f;
+  --black: #080808;
+  --white: #fff;
+  --gray: #33312b;
+
+  --content-width: min(1400px, 92%);
+  --radius: 10px;
+  --shadow-offset: 12px;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: myFont; 
+  src: url("assets/Font.otf"); 
+}
+
+body {
+  margin: 0;
+  background: var(--yellow);
+  color: var(--white);
+  font-family: myFont;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sky-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+
+/* meu menuzin */
+
+.site-nav {
+  position: fixed;
+  inset: 0;
+
+  z-index: 100;
+
+  pointer-events: none;
+}
+
+.menu-toggle {
+  position: absolute;
+
+  top: 12px;
+  right: 15px;
+
+  width: 50px;
+  height: 50px;
+
+  padding: 0;
+
+  border: 3px solid var(--orange);
+  border-radius: 50%;
+
+  background: var(--yellow);
+
+  display: grid;
+  place-content: center;
+  gap: 4px;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  z-index: 120;
+
+  transition:
+    opacity .2s ease,
+    transform .3s cubic-bezier(.16, 1, .3, 1);
+}
+
+
+.menu-toggle span:not(.sr-only) {
+  display: block;
+
+  width: 20px;
+  height: 3px;
+
+  background: var(--black);
+
+  border-radius: 999px;
+}
+
+
+.site-nav.is-open .menu-toggle {
+  opacity: 0;
+
+  transform: scale(.7);
+
+  pointer-events: none;
+}
+
+
+.menu-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(15, 60, 150, .72);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity .35s ease,
+    visibility .35s ease;
+}
+
+
+.site-nav.is-open .menu-overlay {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+.menu-panel {
+  position: absolute;
+
+  inset: 0;
+  
+  background: transparent;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  z-index: 110;
+}
+
+
+.site-nav.is-open .menu-panel {
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+.menu-panel::before {
+  content: "";
+
+  position: absolute;
+
+
+  top: 12px;
+  right: 15px;
+
+  width: 50px;
+  height: 50px;
+
+
+  border-radius: 50%;
+
+  background: var(--yellow);
+
+  transform: scale(0);
+
+  transform-origin: center center;
+
+
+  transition:
+    transform .7s cubic-bezier(.16, 1, .3, 1);
+
+  z-index: 0;
+}
+
+
+.site-nav.is-open .menu-panel::before {
+  transform: scale(24);
+}
+
+.menu-close {
+  position: absolute;
+
+  top: 12px;
+  right: 15px;
+
+  width: 50px;
+  height: 50px;
+
+  padding: 0;
+
+  border: 3px solid var(--orange);
+
+  border-radius: 50%;
+
+  background: var(--yellow);
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  opacity: 0;
+
+  transform: scale(.7);
+
+  pointer-events: none;
+
+  transition:
+    opacity .2s ease .45s,
+    transform .35s cubic-bezier(.16, 1, .3, 1) .45s;
+}
+
+
+.site-nav.is-open .menu-close {
+  opacity: 1;
+
+  transform: scale(1);
+
+  pointer-events: auto;
+}
+
+.menu-close span {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 23px;
+  height: 3px;
+
+  background: var(--black);
+
+  border-radius: 999px;
+}
+
+
+.menu-close span:first-child {
+  transform:
+    translate(-50%, -50%)
+    rotate(45deg);
+}
+
+
+.menu-close span:last-child {
+  transform:
+    translate(-50%, -50%)
+    rotate(-45deg);
+}
+
+.menu-content {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: min(48vw, 560px);
+  height: 100%;
+
+  box-sizing: border-box;
+
+  padding:
+    70px
+    clamp(35px, 6vw, 90px)
+    40px
+    30px;
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  transform: translateY(18px);
+
+  transition:
+    opacity .4s ease .5s,
+    transform .5s cubic-bezier(.16, 1, .3, 1) .5s;
+}
+
+
+.site-nav.is-open .menu-content {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.menu-kicker {
+  margin: 0 0 12px;
+
+  font-size: .8rem;
+
+  letter-spacing: .3em;
+
+  color: var(--black);
+}
+
+
+.menu-content h2 {
+  margin: 0 0 42px;
+
+  font-size: clamp(3.5rem, 7%, 6.5rem);
+
+  line-height: .85;
+
+  color: var(--black);
+}
+
+
+.menu-content a {
+  display: block;
+
+  width: fit-content;
+
+  padding: 11px 0;
+
+  color: var(--black);
+
+  font-size: clamp(1.15rem, 2%, 1.8rem);
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  transition:
+    transform .2s ease,
+    opacity .2s ease;
+}
+
+
+.menu-content a:hover {
+  transform: translateX(-8px);
+
+  opacity: .7;
+}
+
+.sr-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+
+@media (max-width: 600px) {
+
+  .menu-panel::before {
+
+    width: 50px;
+    height: 50px;
+  }
+
+
+  .site-nav.is-open .menu-panel::before {
+    transform: scale(19);
+  }
+  
+  .menu-content {
+
+
+    width: 65vw;
+
+    padding:
+
+      60px
+      25px
+      40px
+      15px;
+  }
+
+
+  .menu-content h2 {
+    margin-bottom: 35px;
+
+    font-size: clamp(3rem, 13vw, 5rem);
+  }
+  
+  .menu-content a {
+    font-size: clamp(1rem, 4.5vw, 1.35rem);
+
+    padding: 10px 0;
+  }
+
+}
+
+
+
+/* Seção de info aq */
+
+.info-section {
+  position: relative;
+  isolation: isolate;
+
+  width: min(1500px, 92%);
+
+  margin: 1px auto;
+
+  padding: 70px 60px;
+
+  display: block;
+
+  overflow: hidden;
+
+}
+
+/* Genuinamente... Talvez separar em tantas partes
+não tenha sido boa ideia. Ahhghhgggghg whatever, ja editei muita
+coisa nesse ponto mesmo */
+
+
+.info-text-card {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.text-content {
+    position: relative;
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    min-height: 100%;
+}
+
+.card-inner {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  gap: 10px;
+
+  min-height: 600px;
+
+  padding: 4px;
+
+  background: var(--blue);
+
+  border: 3px solid rgba(255, 255, 255, .12);
+
+  overflow: hidden;
+}
+
+.card-inner--blue {
+  background: var(--blue);
+}
+
+.card-inner--red {
+  background: var(--red);
+}
+
+.card-inner--yellow {
+  background: var(--yellow);
+  color: var(--black);
+}
+
+.solid-shadow {
+  position: absolute;
+  inset: 0;
+  transform: translate(7px, 7px);
+  z-index: 0;
+}
+
+.solid-shadow--yellow {
+  background: var(--blue-dark);
+}
+
+.solid-shadow--red {
+  background: var(--red-dark);
+}
+
+.solid-shadow--yellow-dark {
+  background: var(--orange);
+}
+
+.section-title {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 1px;
+  padding: 12px 22px;
+
+  font-size: clamp(1.6rem, 3%, 3rem);
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.section-title--yellow {
+  background: var(--yellow);
+  color: var(--gray);
+  box-shadow: 7px 4px 0 var(--black);
+}
+
+.section-title--red {
+  background: var(--red);
+  color: var(--white);
+  box-shadow: 7px 4px 0 var(--red-dark);
+}
+
+.section-title--black {
+  background: var(--blue-dark);
+  color: var(--white);
+  box-shadow: 7px 4px 0 var(--blue);
+}
+
+.synopse {
+  margin: 0;
+  font-size: clamp(1rem, 1.4%, 1.35rem);
+  line-height: 1.75;
+  color: var(--gray)
+}
+
+.media-grid {
+  position: relative;
+
+    width: 100%;
+    height: 100%;
+    min-height: 130%;
+    z-index: 4;
+    margin: 10px;
+}
+
+.media-slot {
+  position: relative;
+
+    width: 78%;
+    aspect-ratio: 16 / 9;
+
+    display: grid;
+    place-items: center;
+
+    background: rgba(0, 0, 0, .35);
+
+    border: 3px solid rgba(255, 255, 255, .75);
+
+    font-size: .8rem;
+    font-weight: 900;
+    letter-spacing: .12em;
+}
+
+
+.yellow-area {
+  position: relative;
+  min-height: 800px;
+  padding: 120px 4%;
+  background: var(--yellow);
+  color: var(--black);
+  overflow: hidden;
+}
+
+.decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.decorations img {
+  position: absolute;
+  width: 160px;
+  max-width: 20%;
+}
+
+.decorations img:nth-child(1) {
+  top: 7%;
+  left: 5%;
+}
+
+.decorations img:nth-child(2) {
+  top: 38%;
+  right: 5%;
+}
+
+.decorations img:nth-child(3) {
+  bottom: 5%;
+  left: 22%;
+}
+
+.merch-card {
+  position: relative;
+  z-index: 2;
+
+  width: min(1100px, 90%);
+  margin: auto;
+  padding: clamp(30px, 5%, 70px);
+
+  background: var(--brown);
+  color: var(--white);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.eyebrow {
+  font-size: .8rem;
+  font-weight: 900;
+  letter-spacing: .3em;
+}
+
+.merch-card h2 {
+  font-size: clamp(2rem, 5%, 5rem);
+  line-height: .9;
+  margin: 15px 0 25px;
+}
+
+.merch-copy p {
+  line-height: 1.7;
+}
+
+.merch-image {
+  width: 100%;
+  background: rgba(0,0,0,.25);
+}
+
+.footer {
+  min-height: 350px;
+  padding: 70px 5%;
+
+  background: var(--black);
+  color: var(--white);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.footer-left {
+  max-width: 650px;
+}
+
+.footer-platforms {
+  font-size: 1.3rem;
+  font-weight: 900;
+  max-width: 30%
+}
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 30px 0;
+}
+
+.keywords span {
+  padding: 7px 10px;
+  background: var(--white);
+  color: var(--black);
+  font-size: .7rem;
+  font-weight: 900;
+}
+
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.footer-logos img {
+  width: 150px;
+  max-width: 25%;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-trailer {
+    margin-top: 0px;
+  }
+/* sabe, copia e cola de um desses blocos
+  pro outro tem seu preço, por causa de um margin
+  top aqui, eu fiquei 40 minutos procurando o por
+  que diabos tinha um espaço vazio na seção inicial.
+  Eu vou deixar aqui como 0 ao invés de apagar em
+  respeito a este monumento.  */
+  .info-section {
+    min-height: auto;
+    padding: 30px 6%;
+  }
+
+  .media-grid--three,
+  .media-grid--two {
+    width: 100%;
+    gap: 35px;
+  }
+
+  .media-grid--three .media-slot,
+  .media-grid--two .media-slot {
+    justify-self: center;
+  }
+
+  .menu-panel {
+    width: 82%;
+  }
+
+  .menu-content {
+    width: 75%;
+  }
+
+  .merch-card {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+
+
+.extra-page {
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+  background: #6aa8dd;
+}
+
+.extra-page .sky-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+.extra-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .08);
+  z-index: -2;
+  pointer-events: none;
+}
+
+.extra-main {
+  width: min(1200px, 92%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 90px 0 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.extra-card {
+  position: relative;
+  width: 100%;
+  padding: 7px;
+  z-index: 2;
+}
+
+.extra-card-shadow {
+  position: absolute;
+  inset: 0;
+  transform: translate(14px, 10px);
+  background: var(--blue-dark);
+}
+
+.extra-card-inner {
+  position: relative;
+  min-height: 560px;
+  padding: clamp(24px, 4vw, 55px);
+  background: var(--blue);
+
+  color: var(--gray);
+}
+
+.extra-title {
+  display: inline-block;
+  margin: 0 0 28px;
+  padding: 12px 20px;
+  background: var(--yellow);
+  color: var(--gray);
+  box-shadow: 7px 4px 0 var(--black);
+  font-size: clamp(1.7rem, 4vw, 3.3rem);
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.extra-intro {
+  margin: 0 0 28px;
+  max-width: 850px;
+  line-height: 1.65;
+}
+
+.extra-fields {
+  display: grid;
+  gap: 14px;
+}
+
+.extra-field {
+  padding: 15px 18px;
+  min-height: 58px;
+  background: rgba(255,255,255,.9);
+  border: 3px solid var(--black);
+  color: var(--gray);
+}
+
+.extra-field strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--black);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.extra-field span {
+  display: block;
+  min-height: 1.2em;
+}
+
+.extra-field a {
+  color: var(--blue-dark);
+  font-weight: 700;
+}
+
+.details-top {
+  display: grid;
+  grid-template-columns: minmax(190px, 290px) 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.cover-slot {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: rgba(0,0,0,.35);
+  border: 3px solid rgba(255,255,255,.85);
+  color: var(--white);
+  font-size: .75rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-align: center;
+}
+
+.cover-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.details-fields {
+  display: grid;
+  gap: 12px;
+}
+
+.carousel-wrap {
+  margin-top: 38px;
+}
+
+.carousel-title {
+  margin: 0 0 14px;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.carousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.carousel-window {
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,.85);
+  background: rgba(0,0,0,.35);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform .35s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  aspect-ratio: 16 / 8;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  font-size: .75rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-align: center;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-btn {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--black);
+  font-size: 1.5rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.carousel-btn:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 700px) {
+  .extra-main {
+    padding: 80px 0 35px;
+  }
+
+  .extra-card-inner {
+    min-height: auto;
+  }
+
+  .details-top {
+    grid-template-columns: 1fr;
+  }
+
+  .cover-slot {
+    width: min(260px, 100%);
+    margin: 0 auto;
+  }
+
+  .carousel {
+    grid-template-columns: 34px 1fr 34px;
+  }
+
+  .carousel-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 1.1rem;
+  }
+}
+
+
+.contact-form { 
+  display:grid; 
+  gap:14px; 
+  max-width:900px; 
+}
+
+.contact-form .extra-field { 
+  display:block; 
+  padding:13px 16px 14px; 
+}
+
+.form-row { 
+  display:grid; 
+  grid-template-columns:1fr 1fr; 
+  gap:14px; 
+}
+.contact-form input, .contact-form textarea {
+  width:100%; 
+  box-sizing:border-box; 
+  margin-top:4px; 
+  padding:10px 2px 5px;
+  border:0; 
+  border-bottom:2px solid rgba(0,0,0,.25); outline:0;
+  background:transparent; 
+  color:var(--gray); 
+  font:inherit; 
+  font-size:1rem; 
+  resize:vertical;
+}
+
+.contact-form input:focus, .contact-form textarea:focus { 
+  border-bottom-color:var(--blue-dark); 
+}
+
+.contact-form input::placeholder, .contact-form textarea::placeholder { 
+  color:rgba(42,42,42,.55); 
+}
+.form-actions { 
+  display:flex; 
+  align-items:center; 
+  gap:18px; 
+  flex-wrap:wrap; 
+  margin-top:4px; 
+}
+
+.form-submit {
+  min-height:16px; 
+  padding:10px 22px; 
+  border:3px solid var(--black);
+  background:var(--yellow); 
+  color:var(--black); 
+  font:inherit; 
+  font-weight:900;
+  cursor:pointer; 
+  box-shadow:5px 4px 0 var(--black);
+  margin-bottom: 30px;
+}
+.form-submit:hover { 
+  transform:translate(-1px,-1px); 
+}
+.form-submit:active { 
+  transform:translate(2px,2px); 
+  box-shadow:2px 2px 0 var(--black); 
+}
+.form-status { 
+  margin:0; 
+  font-weight:700; 
+}
+@media (max-width:700px) { 
+  .form-row { 
+    grid-template-columns:1fr; 
+  } 
+}
